@@ -61,7 +61,7 @@ export const EnrollSection: React.FC = () => {
                       className="size-7"
                     />
                   </div>
-                  <div className="font-medium text-base xl:text-2xl leading-[1.1] tracking-[0%] w-2/3 mx-auto">
+                  <div className="font-medium text-base xl:text-2xl leading-[1.1] tracking-[0%] w-4/5 mx-auto">
                     Align Research with Business and Client Goals
                   </div>
                   <p className="w-5/6 mx-auto mt-2.5 text-sm md:text-base xl:text-lg">
