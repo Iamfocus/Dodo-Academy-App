@@ -14,17 +14,16 @@ export async function POST(request: NextRequest) {
     lastName,
     jobTitle,
     emailAddress,
+    email,
     organization,
     agreed,
     captchaToken,
   } = body;
 
+  const validEmail = emailAddress || email;
+
   if (
-    !firstName ||
-    !lastName ||
-    !jobTitle ||
-    !emailAddress ||
-    !organization ||
+    !validEmail ||
     !captchaToken
   ) {
     return NextResponse.json(
