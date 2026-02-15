@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
   const url = `https://${serverPrefix}.api.mailchimp.com/3.0/lists/${audienceId}/members`;
 
   const data = {
-    email_address: emailAddress,
+    email_address: validEmail,
     status: "subscribed",
     merge_fields: {
       FNAME: firstName,

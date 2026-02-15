@@ -46,6 +46,7 @@ export default function Start() {
 
     if (!captchaToken) {
       setError("Please verify that you are not a robot");
+      setSubmitting(false);
       return;
     }
 
