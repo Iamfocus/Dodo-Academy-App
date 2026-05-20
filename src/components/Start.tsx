@@ -13,6 +13,7 @@ export default function Start() {
   const [captchaToken, setCaptchaToken] = useState(null);
 
   const pathName = usePathname();
+  const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   useEffect(() => {
     setSubmitted(false);
@@ -44,7 +45,7 @@ export default function Start() {
       return;
     }
 
-    if (!captchaToken) {
+    if (recaptchaSiteKey && !captchaToken) {
       setError("Please verify that you are not a robot");
       setSubmitting(false);
       return;
@@ -157,10 +158,12 @@ export default function Start() {
                   </p>
                 )}
               </div>
-              <ReCAPTCHA
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                onChange={(token: any) => setCaptchaToken(token)}
-              />
+              {recaptchaSiteKey ? (
+                <ReCAPTCHA
+                  sitekey={recaptchaSiteKey}
+                  onChange={(token: any) => setCaptchaToken(token)}
+                />
+              ) : null}
               <button
                 type="submit"
                 disabled={submitting}
@@ -238,10 +241,12 @@ export default function Start() {
                   </p>
                 )}
               </div>
-              <ReCAPTCHA
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                onChange={(token: any) => setCaptchaToken(token)}
-              />
+              {recaptchaSiteKey ? (
+                <ReCAPTCHA
+                  sitekey={recaptchaSiteKey}
+                  onChange={(token: any) => setCaptchaToken(token)}
+                />
+              ) : null}
               <button
                 type="submit"
                 disabled={submitting}
